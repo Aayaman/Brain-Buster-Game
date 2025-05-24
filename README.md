@@ -11,7 +11,7 @@ Choose your grid size, test your memory, and race against your trial limit!
 ## 🖼️ Live Demo
 
 🎥 **Watch Brain Buster in action**:  
-[![Game Demo](Game%20Demo/BrainBusterGameDemo4.gif)](Game%20Demo/BrainBusterGameDemo4.gif)
+[![Game Demo](Game%20demo/BrainBusterGameDemo4.gif)](Game%20demo/BrainBusterGameDemo4.gif)
 
 
 ---
