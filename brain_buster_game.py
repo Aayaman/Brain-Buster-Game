@@ -8,6 +8,7 @@ class MemoryGame:
         self.master.title("Brain Buster Game")
 
         self.size = self.ask_grid_size()
+        self.use_emojis = self.ask_mode()
         self.max_tries = self.size * self.size  # trial limit is one try per tile
         self.tries = 0
         self.matches_found = 0
@@ -23,11 +24,28 @@ class MemoryGame:
         size = simpledialog.askinteger("Grid Size", "Choose grid size (4, 8, or 16):", minvalue=4, maxvalue=16)
         return size if size in [4, 8, 16] else 4
 
+    def ask_mode(self):
+        return messagebox.askyesno("Game Mode", "Do you want to play with emojis?\nYes = Emojis, No = Numbers")
+
     def generate_grid(self):
         total_tiles = self.size * self.size
-        pairs = list(range(total_tiles // 2)) * 2
-        random.shuffle(pairs)
-        return [pairs[i * self.size:(i + 1) * self.size] for i in range(self.size)]
+        pair_count = total_tiles // 2
+
+        if self.use_emojis:
+            emoji_pool = [
+                '🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼',
+                '🐨', '🐯', '🦁', '🐮', '🐷', '🐸', '🐵', '🐔',
+                '🐧', '🐦', '🐤', '🦆', '🦉', '🦇', '🐺', '🐗',
+                '🐴', '🦄', '🐝', '🪲', '🐢', '🐍', '🦕', '🦖'
+            ]
+            if pair_count > len(emoji_pool):
+                raise ValueError("Not enough unique emojis for the selected grid size.")
+            values_flat = emoji_pool[:pair_count] * 2
+        else:
+            values_flat = list(range(pair_count)) * 2
+
+        random.shuffle(values_flat)
+        return [values_flat[i * self.size:(i + 1) * self.size] for i in range(self.size)]
 
     def create_widgets(self):
         for i in range(self.size):
