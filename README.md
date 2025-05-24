@@ -11,7 +11,7 @@ Choose your grid size, test your memory, and race against your trial limit!
 ## 🖼️ Live Demo
 
 🎥 **Watch Brain Buster in action**:  
-[![Game Demo](https://i.imgur.com/BB1vsub.gif)](https://imgur.com/a/BB1vsub)
+[![Game Demo](https://i.imgur.com/BB1vsub)](https://i.imgur.com/BB1vsub)
 
 ---
 
@@ -40,7 +40,6 @@ Choose your grid size, test your memory, and race against your trial limit!
    ```bash
    git clone https://github.com/Aayaman/Brain-Buster-Game.git
    cd Brain-Buster-Game
-   
 Run the game:
 python brain_buster_game.py
 
